@@ -1,30 +1,63 @@
-.overlay-figure {
-  position: relative;
-/*
-   You can safely give the entire complex a size, or just a width or height. If a
-   size isn't specified then the overlay-figure-content element's size defines
-   the overall size (i.e. the IMG element defines the overall size).
 
-   width: 480px;
-   height: 320px;
-*/
-  display: table;
-  border: solid 1px black;
+body {
+  background-color: #F4C1C8;
 }
+.addBorder{  
+    border:1px solid #ccc;  
+}  
+  
+#imgDiv{  
+    width:100px;  
+    height:100px;  
+}  
+  
+#imgContent{  
+    width: 100%;  
+    height:100%;  
+}  
 
-.overlay-figure-content {
-  width: 100%;
-  height: 100%;
- -webkit-transform: scale(1.0) translateZ(0);
-    -moz-transform: scale(1.0) translateZ(0);
-         transform: scale(1.0) translateZ(0);
-  -webkit-transition: -webkit-transform 0.5s ease 0.25s;
-     -moz-transition:    -moz-transform 0.5s ease 0.25s;
-          transition:         transform 0.5s ease 0.25s;
+
+
+
+.gallery{
+	list-style: none;
+	padding: 50px;
+	max-width: 960px; 
+	text-align: center;
+	margin: auto;
 }
-
-.overlay-figure:hover
+ 
+ .overlay-figure{
+	position: relative;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 300px;
+	height: 225rpx;
+	margin: 2px;
+	border: 5px solid #fff;
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	box-shadow: 0 2px 2px rgba(0,0,0,.1);
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;        
+}
+	
 .overlay-figure-content {
+	width: 100%;
+	height: 100%;
+	-webkit-transform: scale(1.0) translateZ(0);
+	-moz-transform: scale(1.0) translateZ(0);
+		 transform: scale(1.0) translateZ(0);
+	-webkit-transition: -webkit-transform 0.5s ease 0.25s;
+	-moz-transition:    -moz-transform 0.5s ease 0.25s;
+		 transition:         transform 0.5s ease 0.25s;
+}
+	
+.onclickPic .overlay-figure-content {
     -webkit-transform: scale(0.95) translateZ(0);
        -moz-transform: scale(0.95) translateZ(0);
             transform: scale(0.95) translateZ(0);
@@ -32,21 +65,22 @@
 
 .overlay-figure-content > img {
     display: block;
+	width: 100%;
+	height: 100%;
 }
 
 .overlay-figure-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  background-image: linear-gradient(to bottom, rgba(38,50,72, 0.5), rgba(38,50,72, 0.85));
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	background-image: linear-gradient(to bottom, rgba(67,78,88,0.20), rgba(67,78,88,0.80));
 }
 
-.overlay-figure:hover
-.overlay-figure-background {
-  opacity: 1;
+.onclickPic .overlay-figure-background {
+	  opacity: 1;
 }
 
 .overlay-figure-caption {
@@ -55,6 +89,7 @@
   left: 0;
   height: 100%;
   width: 100%;
+	font-size: auto;
   font-family: adobe-clean, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: white;
   opacity: 0;
@@ -63,49 +98,43 @@
           transition: opacity ease 0.25s;
 }
 
-.overlay-figure:hover
-.overlay-figure-caption {
+.onclickPic .overlay-figure-caption {
     opacity: 1;
 }
 
-.overlay-figure-caption
-.contents {
-  display: table;
-  width: 100%;
-  height: 100%;
+.overlay-figure-caption .contents {
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
-.overlay-figure-caption
-.contents-stack {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  padding: 5%;
+.overlay-figure-caption .contents-stack {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 5%;
 }
 
-.overlay-figure-caption
-.title {
-  display: block;
-  margin-bottom: 0;
-  opacity: 0;
-  -webkit-transform: translateY(-100%) translateZ(0);
-     -moz-transform: translateY(-100%) translateZ(0);
-          transform: translateY(-100%) translateZ(0);
-  -webkit-transition: -webkit-transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
-     -moz-transition:    -moz-transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
-          transition:         transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
+.overlay-figure-caption .title {
+	display: block;
+	margin-bottom: 0;
+	opacity: 0;
+	-webkit-transform: translateY(-100%) translateZ(0);
+	 -moz-transform: translateY(-100%) translateZ(0);
+		  transform: translateY(-100%) translateZ(0);
+	-webkit-transition: -webkit-transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
+	 -moz-transition:    -moz-transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
+		  transition:         transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
 }
 
-.overlay-figure:hover 
-.title {
-  opacity: 1;
-  -webkit-transform: translateY(0) translateZ(0);
-     -moz-transform: translateY(0) translateZ(0);
-          transform: translateY(0) translateZ(0);
+.onclickPic .title {
+	opacity: 1;
+	-webkit-transform: translateY(0) translateZ(0);
+	 -moz-transform: translateY(0) translateZ(0);
+		  transform: translateY(0) translateZ(0);
 }
 
-.overlay-figure
-.separator {
+.overlay-figure .separator {
   display: block;
   margin: 12px;
   margin-left: auto;
@@ -121,7 +150,7 @@
           transition:         transform 0.25s ease 0.25s;
 }
 
-.overlay-figure:hover
+.onclickPic
 .separator {
   -webkit-transform: scaleX(1) translateZ(0);
      -moz-transform: scaleX(1) translateZ(0);
@@ -130,7 +159,8 @@
 
 .overlay-figure-caption 
 .text {
-  display: block;
+	height: 0px;
+/*  display: none;*/
   margin-top: 0;
   opacity: 0;
   -webkit-transform: translateY(100%) translateZ(0);
@@ -141,10 +171,156 @@
           transition:         transform 0.5s ease 0.25s, opacity 0.15s ease 0.25s;
 }
 
-.overlay-figure:hover
+.onclickPic
 .text {
+	height: auto;
   opacity: 1;
   -webkit-transform: translateY(0) translateZ(0);
      -moz-transform: translateY(0) translateZ(0);
           transform: translateY(0) translateZ(0);
+}
+@media only screen and (min-width: 768px) {
+.overlay-figure:nth-child(1) {
+    left: 0px;
+    top: 0px;
+    -webkit-transform:rotate(-5deg);
+	-ms-transform:rotate(-5deg);
+	transform:rotate(-5deg);
+}
+.overlay-figure:nth-child(2){
+	left: 0px;
+	top: 0px;
+	-webkit-transform:rotate(4deg);
+	-ms-transform:rotate(4deg);
+	transform:rotate(4deg);
+}
+.overlay-figure:nth-child(3){
+	left:0px;
+	top:0;
+	-webkit-transform:rotate(-6deg);
+	-ms-transform:rotate(-6deg);
+	transform:rotate(-6deg);
+}
+.overlay-figure:nth-child(4){
+	left:0px;
+	top: 0px;
+	-webkit-transform:rotate(3deg);
+	-ms-transform:rotate(3deg);
+	transform:rotate(3deg);
+}
+.overlay-figure:nth-child(5){
+	left: 0px;
+	top: 0px;
+	-webkit-transform:rotate(-20deg);
+	-ms-transform:rotate(-20deg);
+	transform:rotate(-20deg);
+}
+.overlay-figure:nth-child(6){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(-3deg);
+	-ms-transform:rotate(-3deg);
+	transform:rotate(-3deg);
+}
+.overlay-figure:nth-child(7){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(-13deg);
+	-ms-transform:rotate(-13deg);
+	transform:rotate(-13deg);
+}
+.overlay-figure:nth-child(8){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(6deg);
+	-ms-transform:rotate(6deg);
+	transform:rotate(6deg);
+}
+.overlay-figure:nth-child(9){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(20deg);
+	-ms-transform:rotate(20deg);
+	transform:rotate(20deg);
+}
+.overlay-figure:nth-child(10){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(14deg);
+	-ms-transform:rotate(14deg);
+	transform:rotate(14deg);
+}
+.overlay-figure:nth-child(11){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(-2deg);
+	-ms-transform:rotate(-2deg);
+	transform:rotate(-2deg);
+}
+.overlay-figure:nth-child(12){
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(6deg);
+	-ms-transform:rotate(6deg);
+	transform:rotate(6deg);
+}
+.overlay-figure:nth-child(13){
+	width: 450px;
+	left: 0px;
+	top:0px;
+	-webkit-transform:rotate(-0deg);
+	-ms-transform:rotate(-0deg);
+	transform:rotate(-0deg);
+}
+.container img:hover{
+	-webkit-transform:rotate(0deg) scale(1.5);
+	-ms-transform:rotate(0deg) scale(1.5);
+	transform:rotate(0deg) scale(1.5);
+	-webkit-transition:all 0.5s ease-in;
+	transition:all 0.5s ease-in;
+	z-index: 2;
+}
+.overlay-figure:hover{
+	z-index: 10;
+	border: 5px solid transparent;
+	cursor: pointer;
+		-webkit-transform: rotate(0deg) scale(1.5);
+    -ms-transform: rotate(0deg) scale(1.5);
+    transform: rotate(0deg) scale(1.5);
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    z-index: 2;
+/*
+	transform: scale(1.3);
+	transition: all 1s ease 0s;
+*/
+	
+
+}
+	
+
+	
+ 
+	 
+.hoverPic{ 
+	-webkit-filter: blur(2px) grayscale(1);
+	-moz-filter: blur(2px) grayscale(1);
+	-o-filter: blur(2px) grayscale(1);
+	-ms-filter: blur(2px) grayscale(1);
+	filter: blur(2px) grayscale(1);
+	opacity: .7;  	
+
+}
+}
+	
+@media only screen and (max-width: 768px) {
+.gallery{
+	text-align: center;
+	margin: auto;
+	padding: 0	
+}
+	
+.overlay-figure {
+	border: solid 1px black;
+}
 }
